@@ -31,7 +31,7 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         //
-        $categorie = Categorie::create($request->all());
+        Categorie::create($request->all());
         return redirect()->route("admin.categories.index");
     }
 

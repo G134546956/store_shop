@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProduitsController;
+use App\Http\Controllers\CommandeController;
+
 
 // Route::get('/login', [AuthController::class, 'showLoginForm']
 // )->name('login');
@@ -45,27 +48,19 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-
-Route::get('/', function () {
-    return view('Client.home');
-})->name('home');
-
 // partier client 
+
+Route::get('/', [ClientController::class,'index'])->name('home');
+Route::get('/produit/{id}', [ClientController::class, 'show'])->name('produit.show');
 Route::get('/about', function () {
     return view('Client.about');
 })->name('about');
 
-Route::get(
-    '/boutique',
-    [ProduitController::class, 'index']
-)->name('boutique');
+Route::get('/boutique',[ProduitController::class, 'index'])->name('boutique');
 
-Route::get('/contact', function () {
-    return view('Client.contact');
-})->name('contact');
-Route::get('/panier', function () {
-    return view('Client.panier');
-})->name('panier');
-route::get('/lignecommande', function () {
-    return view('Client.lignecommande');
-})->name('lignecommande');
+Route::get('/contact', function () {return view('Client.contact');})->name('contact');
+Route::get('/panier', function () {return view('Client.panier');})->name('panier');
+route::get('/lignecommande', function () {return view('Client.lignecommande');})->name('lignecommande');
+route::post('/commande/create',[CommandeController::class,'store'])->name('commande.create');
+
+

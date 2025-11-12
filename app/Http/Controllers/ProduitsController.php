@@ -16,8 +16,8 @@ class ProduitsController extends Controller
     }
     public function index()
     {
-        //
-        // $produits = Produit::all();
+        
+        $produits = Produit::all();
         $produits = Produit::with('categorie')->get();
         return view("admin.produits.index",compact('produits'));
     }

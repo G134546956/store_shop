@@ -97,7 +97,7 @@
           @foreach($produits->take(4) as $produit)
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card border-0 h-100 shadow-sm">
-              <img src="{{ asset('images/' . ($produit->image ?? 'placeholder.png')) }}" alt="{{ $produit->nom }}" class="product-img w-100">
+              <img src="{{ asset('images/produits/' . ($produit->image ?? 'placeholder.png')) }}" alt="{{ $produit->nom }}" class="product-img w-100">
               <div class="card-body">
                 <h6 class="card-title mb-1">{{ $produit->nom }}</h6>
                 <p class="text-muted small mb-2">{{ Str::limit($produit->description ?? '', 60) }}</p>

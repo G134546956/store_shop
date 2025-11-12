@@ -64,7 +64,7 @@
                                     <div class="form-text">Formats acceptés: JPG, PNG, JPEG (Max: 2MB)</div>
                                 </div>
                                 <div id="imagePreview" class="mt-3 text-center d-none">
-                                    <img id="preview" class="img-thumbnail" style="max-height: 200px;">
+                                    <img id="preview" alt="#" class="img-thumbnail" style="max-height: 200px;">
                                 </div>
                             </div>
 
